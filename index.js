@@ -1,14 +1,40 @@
-const display = document.querySelector('.display');
+let display = document.querySelector('.display');
 const keysPad = document.querySelector('.calculator-keys');
+let operator ='';
+let firstOperand = null;
+let secondOperand = null;
+let finalResult = null;
+let allInsertedValues = null;
+
+const getResult = () => {
+    if (operator === '/') {
+        finalResult = firstOperand / secondOperand;
+        console.log(finalResult);
+        display.textContent = finalResult.toString();
+    } else if (operator === '+') {
+        finalResult = firstOperand + secondOperand;
+        console.log(finalResult);
+        display.textContent = finalResult.toString();
+    } else if (operator === '-') {
+        finalResult = firstOperand - secondOperand;
+        console.log(finalResult);
+        display.textContent = finalResult.toString();
+    } else if (operator === '*') {
+        finalResult = firstOperand * secondOperand;
+        console.log(finalResult);
+        display.textContent = finalResult.toString();
+    } 
+}
 
 keysPad.addEventListener('click', (e) => {
     const key = e.target;
     const keyValue = key.textContent;
     const displayedValue = display.textContent;
+    allInsertedValues = display.textContent;
 
     // check if the pressed key is a number
 
-    if (key.classList.contains('number')) {
+    if (key.dataset.type ==='number') {
         if (displayedValue === '0') {
             display.textContent = keyValue;
         } else {
@@ -18,12 +44,31 @@ keysPad.addEventListener('click', (e) => {
     
     // check if the pressed key is an operator
 
-    if (key.dataset.type === 'operator') {
-        const firstOperand = display.textContent.;
-
+    if (key.dataset.type === 'operator' && key.textContent !== '=') {
+        firstOperand = parseFloat(display.textContent);
         console.log(firstOperand);
-         
+        operator = key.textContent;
+        if (operator !== '') {
+            display.textContent = '';
+            return;
+        }
     }
+
+    if (operator !== '' && key.dataset.type ==='number') {
+        secondOperand = parseFloat(display.textContent);
+        console.log(secondOperand);
+        
+    }
+
+    if (key.textContent === 'AC') {
+        display.textContent = '0';
+    }
+
+    if (key.textContent === '=') {
+        console.log(key.textContent);
+        getResult();
+    }
+
     
 })
 console.log('');
