@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.display-area {
+    position: relative;
+    height: 8rem;
+    width: 25rem;
+    background-color: #ccc;
+}
+
+.display {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 5rem;
+    width: 20rem;
+    padding-top: 2rem;
+    padding-right: 0.3rem;
+    margin-right: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-align: right;
+    background-color: #ccc;
+}
+
+.calculator-keys {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 25rem;
+}
+
+button {
+    height: 5rem;
+    width: 6.25rem;
+    margin: 0;
+    border: none;
+}
+
+.equal {
+    flex-grow: 4;
+}
+
