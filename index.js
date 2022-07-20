@@ -1,10 +1,11 @@
 let display = document.querySelector('.display');
+let secondaryDisplay = document.querySelector('.secondary-display');
 const keysPad = document.querySelector('.calculator-keys');
 let operator ='';
 let firstOperand = null;
 let secondOperand = null;
 let finalResult = null;
-let allInsertedValues = null;
+
 
 const getResult = () => {
     if (operator === '/') {
@@ -30,7 +31,7 @@ keysPad.addEventListener('click', (e) => {
     const key = e.target;
     const keyValue = key.textContent;
     const displayedValue = display.textContent;
-    allInsertedValues = display.textContent;
+    secondaryDisplay.textContent += key.textContent;
 
     // check if the pressed key is a number
 
@@ -48,10 +49,10 @@ keysPad.addEventListener('click', (e) => {
         firstOperand = parseFloat(display.textContent);
         console.log(firstOperand);
         operator = key.textContent;
-        if (operator !== '') {
-            display.textContent = '';
-            return;
-        }
+       // if (operator !== '') {
+       //     display.textContent = '';
+       //     return;
+       // }
     }
 
     if (operator !== '' && key.dataset.type ==='number') {
@@ -62,13 +63,12 @@ keysPad.addEventListener('click', (e) => {
 
     if (key.textContent === 'AC') {
         display.textContent = '0';
+        secondaryDisplay.textContent = '';
     }
 
     if (key.textContent === '=') {
         console.log(key.textContent);
         getResult();
     }
-
-    
-})
-console.log('');
+});
+console.log(typeof(secondaryDisplay.textContent));

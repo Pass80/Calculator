@@ -22,15 +22,31 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    height: 5rem;
+    height: 3rem;
     width: 20rem;
-    padding-top: 2rem;
     padding-right: 0.3rem;
     margin-right: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
     text-align: right;
     background-color: #ccc;
+    overflow: hidden;
+}
+
+.secondary-display {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 3rem;
+    width: 20rem;
+    padding-right: 0.3rem;
+    margin-top: 0.3rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    text-align: right;
+    background-color: #ccc;
+    overflow: hidden;
 }
 
 .calculator-keys {
@@ -44,10 +60,42 @@ button {
     height: 5rem;
     width: 6.25rem;
     margin: 0;
-    border: none;
+    border: 1px solid rgb(246, 239, 239);
+    /*box-shadow: 3px 4px 0px 0px #899599;*/
+	background-color:#ededed;
+	display:inline-block;
+	cursor:pointer;
+	color:#f27305;
+	font-family:Arial;
+	font-size:17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+}
+
+button:active {
+    background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+
+.op {
+    box-shadow: 0px 1px 0px 0px #fff6af;
+    background-color:#f2c305;
+    border: 1px solid rgb(246, 239, 239);
+    display:inline-block;
+    cursor:pointer;
+    color:#333333;
+    text-decoration:none;
+}
+
+.op:active {
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color:#ffab23;
 }
 
 .equal {
     flex-grow: 4;
 }
+
+
+
 
